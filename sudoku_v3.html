@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sudoku</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.square {
+  height: 40px;
+  width: 40px;
+  background-color: #fff;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #333;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  margin-right: 0px;
+  margin-left: 0px;
+  text-align: center;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.square-filled {
+  background-color: #add8e6;
+}
+
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px 9px #999;
+  width: 350px;
+  height: 70px;
+  position: absolute; 
+  left: 800px;
+}
+
+.button:hover {
+	background-color: #3e8e41;
+	font-size: 25px;
+}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 7px 7px #666;
+  transform: translateY(4px);
+}
+
+</style>
+</head>
+<body>
+
+	<h2>Sudoku</h2>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b11" name="b11"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b12" name="b12"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b13" name="b13"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b14" name="b14"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b15" name="b15"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b16" name="b16"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b17" name="b17"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b18" name="b18"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b19" name="b19"></input>
+		<br/>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b21" name="b21"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b22" name="b22"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b23" name="b23"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b24" name="b24"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b25" name="b25"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b26" name="b26"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b27" name="b27"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b28" name="b28"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b29" name="b29"></input>
+		<br/>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b31" name="b31"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b32" name="b32"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b33" name="b33"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b34" name="b34"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b35" name="b35"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b36" name="b36"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b37" name="b37"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b38" name="b38"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b39" name="b39"></input>
+		<br/>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b41" name="b41"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b42" name="b42"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b43" name="b43"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b44" name="b44"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b45" name="b45"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b46" name="b46"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b47" name="b47"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b48" name="b48"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b49" name="b49"></input>
+		<br/>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b51" name="b51"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b52" name="b52"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b53" name="b53"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b54" name="b54"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b55" name="b55"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b56" name="b56"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b57" name="b57"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b58" name="b58"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b59" name="b59"></input>
+		<br/>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b61" name="b61"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b62" name="b62"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b63" name="b63"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b64" name="b64"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b65" name="b65"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b66" name="b66"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b67" name="b67"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b68" name="b68"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b69" name="b69"></input>
+		<br/>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b71" name="b71"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b72" name="b72"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b73" name="b73"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b74" name="b74"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b75" name="b75"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b76" name="b76"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b77" name="b77"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b78" name="b78"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b79" name="b79"></input>
+		<br/>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b81" name="b81"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b82" name="b82"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b83" name="b83"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b84" name="b84"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b85" name="b85"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b86" name="b86"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b87" name="b87"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b88" name="b88"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b89" name="b89"></input>
+		<br/>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b91" name="b91"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b92" name="b92"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b93" name="b93"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b94" name="b94"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b95" name="b95"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b96" name="b96"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b97" name="b97"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b98" name="b98"></input>
+		<input type="text" class="square" maxlength="1" onkeypress="return onlyNumberKey(event)" id="b99" name="b99"></input>
+
+		<button type="submit" class="button" style = "top:78px;" onclick="checkButton()">Check</button>
+		<button type="submit" class="button" style = "top:198px;" onclick="hintButton()">Hint</button>
+		<button type="submit" class="button" style = "top:318px;" onclick="solButton()">Solution</button>
+		<button type="submit" class="button" style = "top:438px;" onclick="clearValues()">Clear</button>
+		<button type="submit" class="button" style = "top:558px;" onclick="genSudoku()">Generate New Sudoku</button>
+
+</body>
+
+<script>
+	    
+	var newSudoku = [['0','0','0','0','0','0','0','0','0'],
+					  ['0','0','0','0','0','0','0','0','0'],
+					  ['0','0','0','0','0','0','0','0','0'],
+					  ['0','0','0','0','0','0','0','0','0'],
+					  ['0','0','0','0','0','0','0','0','0'],
+					  ['0','0','0','0','0','0','0','0','0'],
+					  ['0','0','0','0','0','0','0','0','0'],
+					  ['0','0','0','0','0','0','0','0','0'],
+					  ['0','0','0','0','0','0','0','0','0']];
+
+	var solvedSudoku = [['0','0','0','0','0','0','0','0','0'],
+					  ['0','0','0','0','0','0','0','0','0'],
+					  ['0','0','0','0','0','0','0','0','0'],
+					  ['0','0','0','0','0','0','0','0','0'],
+					  ['0','0','0','0','0','0','0','0','0'],
+					  ['0','0','0','0','0','0','0','0','0'],
+					  ['0','0','0','0','0','0','0','0','0'],
+					  ['0','0','0','0','0','0','0','0','0'],
+					  ['0','0','0','0','0','0','0','0','0']];	
+					  
+	genSudoku();
+	toggle = 0;
+	
+	function genSudoku(){
+		
+		cleanSlate();
+		
+		for(var i=0; i<9; i++){
+			var num = Math.floor((Math.random() * 9) + 1);
+			if(checkRow(solvedSudoku,num)){
+				solvedSudoku[0][i] = num;
+			}
+			else{
+				i = i-1;
+			}
+		}
+		
+		solSudoku(solvedSudoku,0,0);
+		displaySudoku()
+	}
+	
+	function checkRow(sample,num){
+		for(var j=0; j<9; j++){
+			if(sample[0][j]==num){
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	function displaySudoku(){
+		
+		for(var i = 0; i < 9; i++){
+			for(var j = 0; j < 9; j++){
+				if((Math.floor((Math.random() * 20) + 1) % 3) == 0){
+					newSudoku[i][j] = solvedSudoku[i][j];
+					document.getElementById("b"+(i+1)+(j+1)).value = solvedSudoku[i][j];
+					document.getElementById("b"+(i+1)+(j+1)).style = "background-color: #add8e6;";
+				}
+			}
+        }
+	}
+	
+	function onlyNumberKey(evt) {
+        // Only ASCII charactar in that range allowed
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+        return true;
+    }
+	
+	function checkButton(){
+		
+		if(toggle == 0){
+			for(var i = 0; i < 9; i++){
+				for(var j = 0; j < 9; j++){
+					if(newSudoku[i][j] == 0 && document.getElementById("b"+(i+1)+(j+1)).value){
+						if(document.getElementById("b"+(i+1)+(j+1)).value == solvedSudoku[i][j]){
+							document.getElementById("b"+(i+1)+(j+1)).style = "background-color: #00a050;";
+						}
+						else{
+							document.getElementById("b"+(i+1)+(j+1)).style = "background-color: #f00035;";
+						}
+					}
+				}
+			}
+			toggle = 1;
+		}
+		else{
+			for(var i = 0; i < 9; i++){
+				for(var j = 0; j < 9; j++){
+					if(newSudoku[i][j] == 0){
+						document.getElementById("b"+(i+1)+(j+1)).style = "background-color: #fff;";
+					}
+				}
+			}
+			toggle = 0;
+		}
+    }
+	
+	function solButton(){
+				
+		setValues(solvedSudoku);
+		
+	}
+	
+	function solSudoku(sample,row,column){
+			
+		if(row == 8 && column == 9){
+			return true;
+		}
+		
+		if(column == 9){
+			row = row + 1;
+			column = 0;
+		}
+		
+		if(sample[row][column] > 0){
+			return solSudoku(sample,row,column+1);
+		}
+		
+		for(var num=0; num<9; num++){
+			if(checkGrid(sample,row,column,num+1)){
+				sample[row][column] = num+1;
+				if(solSudoku(sample,row,column+1)){
+					return true;
+				}
+			}
+			sample[row][column] = 0;
+		}
+
+		return false;
+	
+	}
+
+	function checkGrid(sample,row,column,num){
+
+		for(var i = 0; i < 9; i++){	
+			if(sample[row][i] == num){
+				return false;
+			}
+        }
+		
+		for(var i = 0; i < 9; i++){
+			if(sample[i][column] == num){
+				return false;
+			}
+        }
+		    
+		var startRow = row - (row % 3);
+		var startColumn = column - (column % 3);
+		for(var i = 0; i < 3; i++){
+			for(var j = 0; j < 3; j++){
+				if(sample[i+startRow][j+startColumn] == num){
+					return false;
+				}
+			}
+        }
+		
+		return true;
+	
+	}
+	
+	function setValues(sample){
+		
+		for(var i = 0; i < 9; i++){
+			for(var j = 0; j < 9; j++){
+				document.getElementById("b"+(i+1)+(j+1)).value = sample[i][j];
+			}
+        }
+		
+	}
+	
+	function clearValues(){
+		
+		for(var i = 0; i < 9; i++){
+			for(var j = 0; j < 9; j++){
+				if(newSudoku[i][j]==0){
+					document.getElementById("b"+(i+1)+(j+1)).value = '';
+					document.getElementById("b"+(i+1)+(j+1)).style = "background-color: #fff;";
+				}
+			}
+        }
+		
+	}
+	
+	function cleanSlate(){
+	
+		for(var i = 0; i < 9; i++){
+			for(var j = 0; j < 9; j++){
+				document.getElementById("b"+(i+1)+(j+1)).value = "";
+				document.getElementById("b"+(i+1)+(j+1)).style = "background-color: #fff;";
+				document.getElementById("b"+(i+1)+(j+1)).style = "color: #000;";
+
+			}
+        }
+		
+		for(var i = 0; i < 9; i++){
+			for(var j = 0; j < 9; j++){
+				solvedSudoku[i][j] = 0;
+			}
+        }
+		
+		for(var i = 0; i < 9; i++){
+			for(var j = 0; j < 9; j++){
+				newSudoku[i][j] = 0;
+			}
+        }
+		
+		
+	}
+	
+	function hintButton(){
+		var i = Math.floor(Math.random() * 9);
+		var j = Math.floor(Math.random() * 9);
+		if(newSudoku[i][j]==0 && !document.getElementById("b"+(i+1)+(j+1)).value){
+			document.getElementById("b"+(i+1)+(j+1)).value = solvedSudoku[i][j];
+			document.getElementById("b"+(i+1)+(j+1)).style = "color: #00f;";
+		}
+		else{
+			hintButton();
+		}
+	}
+	
+</script>
+</html> 
+
+
